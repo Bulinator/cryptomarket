@@ -36,15 +36,18 @@ const Header = ({ title, subtitle }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.textStyle}>{title}</Text>
-      <Text style={styles.subTextStyle}>
-        Last update: {moment.unix(subtitle).fromNow()}
-      </Text>
+      { subtitle &&
+        <Text style={styles.subTextStyle}>
+          Last update: {moment.unix(subtitle).fromNow()}
+        </Text>
+      }
     </View>
   );
 };
 
 Header.propTypes = {
   title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string,
 };
 
 export { Header };

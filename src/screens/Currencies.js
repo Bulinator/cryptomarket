@@ -4,6 +4,7 @@ import {
   Text,
   View,
   FlatList,
+  Platform
 } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -17,11 +18,25 @@ import { fetchCoinData } from '../actions/';
 import CoinList from '../components/CoinList';
 import Color from '../constants/Color';
 
+const styles = {
+  container: {
+    ...Platform.select({
+      ios: {
+        marginTop: 0
+      },
+      android: {
+        marginTop: 24
+      },
+    })
+  }
+}
+
 class Currencies extends Component {
   static navigationOptions = {
     tabBarIcon: ({ tintColor }) => {
       return <FontAwesome name="bank" size={24} color="white" />;
     },
+    header: null, // hide header as we use our own header
   }
 
   state = { data: '', searchData: '', refreshing: false };
@@ -90,7 +105,7 @@ class Currencies extends Component {
     }
     //console.log(this.props.crypto[0].last_updated);
     return (
-      <View>
+      <View style={styles.container}>
         <Header
           title="Currencies tracker"
           subtitle={this.props.crypto[0].last_updated}

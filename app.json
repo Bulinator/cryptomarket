@@ -15,7 +15,12 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.cryptocurrency.bubul",
+      "supportsTablet": false
+    },
+    "android": {
+      "package": "com.cryptocurrency.bubul",
+      "versionCode": 1
     }
   }
 }
