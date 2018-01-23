@@ -3,7 +3,7 @@
     "name": "crypto-currency",
     "description": "This project is only to improve skills with redux + rn.",
     "slug": "crypto-currency",
-    "privacy": "public",
+    "privacy": "unlisted",
     "sdkVersion": "25.0.0",
     "platforms": ["ios", "android"],
     "version": "1.0.0",
