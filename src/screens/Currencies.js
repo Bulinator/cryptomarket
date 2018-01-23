@@ -22,14 +22,14 @@ const styles = {
   container: {
     ...Platform.select({
       ios: {
-        marginTop: 0
+        marginTop: 64,
       },
       android: {
-        marginTop: 24
+        marginTop: 24,
       },
-    })
-  }
-}
+    }),
+  },
+};
 
 class Currencies extends Component {
   static navigationOptions = {

@@ -50,7 +50,7 @@ const MainScreenNavigator = TabNavigator({
     },
     labelStyle: { fontSize: 11 },
     showIcon: true,
-    showLabel: true,
+    showLabel: false,
     iconStyle: { width: 24 },
   },
   tabBarPosition: 'bottom',

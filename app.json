@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "crypto-currency",
-    "description": "This project is really great.",
+    "description": "This project is only to improve skills with redux + rn.",
     "slug": "crypto-currency",
     "privacy": "public",
     "sdkVersion": "25.0.0",
