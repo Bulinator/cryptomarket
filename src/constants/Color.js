@@ -4,4 +4,5 @@ export default {
   shadowColor: '#000',
   green: '#00B16A',
   red: '#D91E18',
+  aboutBackgroundColor: '#E4F1FE',
 };
