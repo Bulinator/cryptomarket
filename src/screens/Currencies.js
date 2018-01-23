@@ -17,6 +17,7 @@ import {
 import { fetchCoinData } from '../actions/';
 import CoinList from '../components/CoinList';
 import Color from '../constants/Color';
+import I18n from '../i18n/';
 
 const styles = {
   container: {
@@ -25,7 +26,7 @@ const styles = {
         marginTop: 64,
       },
       android: {
-        marginTop: 24,
+        marginTop: 0,
       },
     }),
   },
@@ -34,12 +35,15 @@ const styles = {
 class Currencies extends Component {
   static navigationOptions = {
     tabBarIcon: ({ tintColor }) => {
-      return <FontAwesome name="bank" size={24} color="white" />;
+      return <FontAwesome name="bank" size={20} color={tintColor} />;
     },
     header: null, // hide header as we use our own header
   }
 
-  state = { data: '', searchData: '', refreshing: false };
+  constructor(props) {
+    super(props);
+    this.state = { data: '', searchData: '', refreshing: false };
+  }
 
   componentDidMount() {
     this.props.fetchCoinData();
@@ -71,15 +75,21 @@ class Currencies extends Component {
   }
 
   handleRefresh = () => {
-    this.props.fetchCoinData();
+    this.setState({ refreshing: true });
+    this.props.fetchCoinData().then(() => {
+      this.setState({ refreshing: false });
+    });
   }
 
   renderHeader = () => {
     return (
       <SearchBar
+        round
+        placeholderTextColor={`${Color.tabBackgroundColor}`}
+        icon={{ color: Color.tabBackgroundColor }}
         lightTheme
-        placeholder="Search cryto money"
-        onChangeText={(text) => this.filterSearch(text)}
+        placeholder={I18n.t('searchBar')}
+        onChangeText={text => this.filterSearch(text)}
       />
     );
   }
@@ -98,16 +108,16 @@ class Currencies extends Component {
   render() {
     if (_.isEmpty(this.props.crypto)) {
       return (
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 1, justifyContent: 'center' }}>
           <Spinner />
         </View>
       );
     }
-    //console.log(this.props.crypto[0].last_updated);
+
     return (
       <View style={styles.container}>
         <Header
-          title="Currencies tracker"
+          title={I18n.t('title')}
           subtitle={this.props.crypto[0].last_updated}
         />
         <FlatList

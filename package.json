@@ -4,6 +4,7 @@
   "dependencies": {
     "@expo/vector-icons": "^6.2.2",
     "axios": "^0.17.1",
+    "ex-react-native-i18n": "0.0.3",
     "expo": "^25.0.0",
     "lodash": "^4.17.4",
     "moment": "^2.20.1",

@@ -44,14 +44,19 @@ const MainScreenNavigator = TabNavigator({
   Home: { screen: Currencies },
   About: { screen: About },
 }, {
+  navigationOptions: {
+    tabBarVisible: true,
+  },
   tabBarOptions: {
     style: {
       backgroundColor: Color.tabBackgroundColor,
     },
+    indicatorStyle: {
+      opacity: 0,
+    },
     labelStyle: { fontSize: 11 },
     showIcon: true,
     showLabel: false,
-    iconStyle: { width: 24 },
   },
   tabBarPosition: 'bottom',
   lazyLoad: true,

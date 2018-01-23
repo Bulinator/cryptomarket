@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react';
 import { Text, View, Image } from 'react-native';
 import PropTypes from 'prop-types';
-import moment from 'moment';
+import I18n from '../i18n/';
 import { images } from '../constants/Images';
+import Color from '../constants/Color';
 
 const styles = {
   container: {
@@ -44,11 +45,11 @@ const styles = {
     color: '#A5A5A5',
   },
   percentChangePlus: {
-    color: '#00BFA5',
+    color: Color.green,
     fontWeight: 'bold',
   },
   percentChangeMinus: {
-    color: '#DD2C00',
+    color: Color.red,
     fontWeight: 'bold',
   },
 };
@@ -78,19 +79,19 @@ class CoinList extends PureComponent {
           <Text>
             1H:
             <Text style={percent_change_1h < 0 ? styles.percentChangeMinus : styles.percentChangePlus}>
-              {percent_change_1h}%
+              {(percent_change_1h > 0) ? `+${percent_change_1h}` : percent_change_1h}%
             </Text>
           </Text>
             <Text>
               24H:
               <Text style={percent_change_24h < 0 ? styles.percentChangeMinus : styles.percentChangePlus}>
-                {percent_change_24h}%
+                {(percent_change_24h > 0) ? `+${percent_change_24h}` : percent_change_24h}%
               </Text>
             </Text>
             <Text>
-              7D:
+              7{I18n.t('day')}:
               <Text style={percent_change_7d < 0 ? styles.percentChangeMinus : styles.percentChangePlus}>
-                {percent_change_7d}%
+                {(percent_change_7d > 0) ? `+${percent_change_7d}` : percent_change_7d}%
               </Text>
             </Text>
           </View>

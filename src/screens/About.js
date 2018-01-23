@@ -5,7 +5,7 @@ import { FontAwesome } from '@expo/vector-icons';
 class About extends Component {
   static navigationOptions = {
     tabBarIcon: ({ tintColor }) => {
-      return <FontAwesome name="info" size={24} color="white" />;
+      return <FontAwesome name="info" size={20} color={tintColor} />;
     },
   }
 
