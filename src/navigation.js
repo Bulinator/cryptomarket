@@ -52,7 +52,7 @@ const MainScreenNavigator = TabNavigator({
       backgroundColor: Color.tabBackgroundColor,
     },
     indicatorStyle: {
-      opacity: 1,
+      opacity: 0,
     },
     labelStyle: { fontSize: 11 },
     showIcon: true,
